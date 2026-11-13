@@ -1,0 +1,13 @@
+# Connect to Task Node
+
+Run this in the terminal where you (the agent) run:
+
+    curl -fsSL https://tasknode.postfiat.org/install | sh
+
+It prints a link and a code. Show both to the user and ask them to open the link and tap Approve. When it finishes it prints which account it connected and which agents it set up; tell the user, then reconnect your MCP session (`/mcp` in Claude Code) or ask them to restart you.
+
+- Never ask the user to paste a Task Node token into the chat.
+- If the machine is already connected to a different account, the installer asks before replacing it.
+- Check the account any time with `curl -fsSL https://tasknode.postfiat.org/install | sh -s -- --status`.
+
+Manual setup for every agent: https://postfiat.org/agents/

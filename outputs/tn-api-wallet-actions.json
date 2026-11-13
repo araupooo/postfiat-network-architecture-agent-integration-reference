@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/wallet/actions",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.522,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 2844,
+  "fetched_at_utc": "2026-11-13T02:40:58Z",
+  "body_head": "{\"actions\":[{\"id\":\"create_start\",\"label\":\"Create seed wallet\",\"path\":\"/api/wallet/create/start\",\"method\":\"POST\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"actionRequired\":\"OAuth accounts can receive the grant after the encrypted local seed vault is saved. Email accounts can qualify after creating a wallet, saving the vault, and crediting more than $10 USDC.\",\"note\":\"Generates a new 24-word seed wallet in the browser, links it by proof, saves the local vault, and then attempts the one-time initiation grant.\"},{\"id\":\"link_start\",\"label\":\"Link seed wallet\",\"path\":\"/api/wallet/link/start\","
+}

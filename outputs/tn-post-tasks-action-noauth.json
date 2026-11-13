@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/tasks/action",
+  "method": "POST",
+  "http_status": 415,
+  "rtt_s": 0.613,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 134,
+  "fetched_at_utc": "2026-11-13T02:41:44Z",
+  "body_head": "{\"ok\":false,\"route\":\"task_action\",\"error\":\"unsupported_media_type\",\"message\":\"The request body does not match this route's contract.\"}"
+}

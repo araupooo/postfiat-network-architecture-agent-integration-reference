@@ -1,0 +1,11 @@
+{
+  "url": "https://vhs.testnet.postfiat.org/v1/health",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.521,
+  "content_type": "application/json; charset=utf-8",
+  "content_length": "14",
+  "body_bytes": 14,
+  "fetched_at_utc": "2026-11-13T02:38:00Z",
+  "body_head": "{\"count\":\"12\"}"
+}

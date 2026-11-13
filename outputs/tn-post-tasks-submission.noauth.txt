@@ -1,0 +1,2 @@
+{"ok":false,"action":"task_submission","error":"task_submission_login_required","message":"Sign in before submitting task evidence.","actionRequired":"Sign in, unlock the linked wallet, then retry."}
+HTTP 401 0.512990s
