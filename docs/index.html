@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PostFiat Network Architecture and Agent Integration Reference</title>
+<style>
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 960px; margin: 0 auto; padding: 24px; color: #1a1a1a; line-height: 1.55; }
+  h1 { font-size: 1.6em; } h2 { font-size: 1.25em; margin-top: 1.6em; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; } th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; font-size: 0.92em; }
+  th { background: #f2f2f2; } code { background: #f4f4f4; padding: 1px 4px; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #f4f4f4; padding: 12px; overflow-x: auto; border-radius: 6px; }
+  .note { background: #fff8e1; border-left: 4px solid #f0ad4e; padding: 10px 14px; margin: 12px 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .card { border: 1px solid #ddd; border-radius: 8px; padding: 12px 14px; }
+  .card b { font-size: 1.5em; display: block; }
+  .sev-Medium { color: #b26a00; font-weight: bold; } .sev-Low { color: #555; font-weight: bold; } .sev-Info { color: #2a6f9e; font-weight: bold; }
+  .mermaid { background: #fafafa; border: 1px solid #eee; border-radius: 6px; padding: 8px; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true});</script>
+</head>
+<body>
+<h1>PostFiat Network Architecture and Agent Integration Reference</h1>
+<p>Public testnet observations (2026-11-13, 02:29–02:44 UTC) + the complete public
+agent work-request, submission, and verification surface of the Task Node.
+Every measured claim links to an unedited output in the repository;
+every specification-derived claim cites a primary source.</p>
+<p><strong>Repository:</strong> this repo. <strong>Docs:</strong>
+<a href="citations.html">citations</a> · <a href="methodology.html">methodology</a> ·
+<a href="topology-map.html">topology map</a> · <a href="consensus-flow.html">consensus flow</a> ·
+<a href="agent-integration.html">agent integration</a> · <a href="findings-report.html">findings</a> ·
+<a href="decision-memo.html">decision memo</a> · <a href="claim-evidence-index.html">claim–evidence index</a>
+(all as Markdown in <code>docs/</code>; this page is the summary).</p>
+
+<div class="note"><strong>Two networks, keep them apart.</strong> The <em>live testnet</em> runs
+<code>postfiatd</code> 1.0.9 (a rippled fork, XRPL-style consensus, quorum 17/25, ~3 s closes).
+The <em>l1v2 design</em> (Consensus v2 prepare/precommit QCs + Cobalt ratification) is specified
+in the whitepaper and the <code>postfiatl1v2</code> repo — it is <strong>not</strong> what the
+live testnet runs today.</div>
+
+<h2>Headline numbers (measured)</h2>
+<div class="grid">
+  <div class="card"><b>3.036 s</b> mean ledger close interval (median 3.000 s, range 2.727–3.333 s), 21 samples / 600 s</div>
+  <div class="card"><b>19.80</b> ledgers/min — validated seq 8,001,214 → 8,001,412 in 600.0 s</div>
+  <div class="card"><b>25 / 17</b> UNL validators / validation quorum (68%) — 66 validators total, 41 non-UNL</div>
+  <div class="card"><b>0.00255%</b> missed validations in 24 h (48 of 1,881,457); 0 missed in 1 h</div>
+  <div class="card"><b>71</b> P2P topology nodes, 730 edges, 17 countries; 3 Atlanta hubs carry ~19% of edges</div>
+  <div class="card"><b>10 drops</b> base fee — supply fell 60 drops in 31 s (fee burn, directly observed)</div>
+  <div class="card"><b>21</b> peers on the probed node (constant); <b>25</b> proposers per close; converge ~2.0 s</div>
+  <div class="card"><b>213</b> Task Node route policies across 8 auth modes; mutations require a session (401 without one)</div>
+</div>
+
+<h2>Validator topology</h2>
+<div class="mermaid">
+flowchart TB
+    subgraph UNL[UNL — 25 validators, quorum 17]
+        U1[25 UNL members - all on postfiatd 1.0.9 - all with verified domains]
+    end
+    subgraph NONUNL[Non-UNL validators — 41]
+        N1[41 validators - 30 with verified domains - versions 1.0.9 / 1.0.4 / 1.0.0 / 1.0.8]
+    end
+    subgraph TOPO[P2P topology — 71 nodes, 730 edges]
+        H0[Hub n9M7RRXWAEZY - Atlanta, US - inbound 47 / outbound 10]
+        H1[Hub n9K5JWvHTSyL - Atlanta, US - inbound 47 / outbound 10]
+        H2[Hub n9LYanpKcAGs - Atlanta, US - inbound 46 / outbound 10]
+        R[Other 68 nodes - median io_latency 1 ms]
+    end
+    RPC[rpc.testnet.postfiat.org - public JSON-RPC :443 - node n9K4AomB… (Canary Wharf) - 21 peers]
+    VHS[vhs.testnet.postfiat.org - Validator History Service API]
+    EXP[explorer.testnet.postfiat.org - /api/v1/metrics + /api/v1/health]
+    UNL -->|validations, 17/25 quorum| RPC
+    NONUNL -->|validations| RPC
+    TOPO -->|crawled peer graph| VHS
+    RPC -->|server_info / ledger / fee| EXP
+</div>
+<table>
+<tr><th>Layer</th><th>Count</th><th>Source</th></tr>
+<tr><td>Validators with manifests (VHS)</td><td>66</td><td><code>outputs/vhs-testnet-v1-network-validators.json</code></td></tr>
+<tr><td>UNL members</td><td>25</td><td>same, <code>unl: true</code></td></tr>
+<tr><td>Non-UNL validators</td><td>41</td><td>same</td></tr>
+<tr><td>P2P topology nodes</td><td>71</td><td><code>outputs/vhs-testnet-v1-network-topology-nodes.json</code></td></tr>
+<tr><td>P2P edges (inbound = outbound)</td><td>730</td><td>same, summed per-node counts</td></tr>
+<tr><td>Probed node's peers</td><td>21</td><td><code>outputs/cadence-run1.jsonl</code></td></tr>
+<tr><td>Validation quorum / proposers</td><td>17 / 25</td><td>same</td></tr>
+</table>
+
+<h2>Consensus message flow — live testnet (measured)</h2>
+<div class="mermaid">
+sequenceDiagram
+    participant C as Client / Wallet
+    participant R as RPC node - rpc.testnet.postfiat.org
+    participant P as Proposing validators - 25 UNL
+    participant V as Validating validators - 25 UNL
+    participant L as Validated ledger
+    C->>R: signed transaction (JSON-RPC)
+    R->>P: transaction enters open ledger
+    P->>P: propose transaction set
+    P->>V: proposal messages
+    V->>V: validations — each signs the ledger it accepts
+    V->>L: 17 of 25 agree → ledger validated
+    L-->>R: validated ledger (seq, hash, close_time)
+    C->>R: ledger / account_info / tx queries
+</div>
+<p>The l1v2 design flow (Consensus v2 prepare/precommit QCs + Cobalt trust
+ratification) is documented separately in <code>docs/consensus-flow.md</code> —
+it is specified, not live.</p>
+
+<h2>Agent integration — public surface (measured)</h2>
+<table>
+<tr><th>Route</th><th>Auth</th><th>Anonymous probe result</th></tr>
+<tr><td><code>GET /api/tasks</code></td><td>optional</td><td>200 — personalRequestEnabled <b>true</b>, networkRequestEnabled <b>false</b>, dailyRewardCap 8</td></tr>
+<tr><td><code>GET /api/tasks/detail</code> (no taskId)</td><td>optional</td><td>400 <code>task_id_required</code></td></tr>
+<tr><td><code>POST /api/tasks/request</code></td><td>handler</td><td>401 <code>task_request_login_required</code></td></tr>
+<tr><td><code>POST /api/tasks/action</code></td><td>handler</td><td>401 <code>task_login_required</code></td></tr>
+<tr><td><code>POST /api/tasks/submission</code></td><td>handler</td><td>401 <code>task_submission_login_required</code></td></tr>
+<tr><td><code>GET /api/health</code> / <code>/api/readiness</code> / <code>/api/system/status</code></td><td>none</td><td>200 — production, providers telegram/discord/x/github/email</td></tr>
+<tr><td><code>GET /api/hive/bm-feed?board=board_pf_terminal</code></td><td>none</td><td>200 — board active, daily budget 50,000 PFT, per-task cap 5,000 PFT</td></tr>
+<tr><td><code>POST https://rpc.testnet.postfiat.org/</code> (<code>server_info</code>, <code>ledger</code>, <code>fee</code>)</td><td>none</td><td>200 — open, unauthenticated</td></tr>
+<tr><td><code>POST https://rpc.testnet.postfiat.org/</code> (<code>validators</code>, <code>peers</code>)</td><td>admin</td><td>403 Forbidden</td></tr>
+<tr><td><code>wss://rpc.testnet.postfiat.org</code></td><td>—</td><td>401 on upgrade / close 1006 — ledger stream requires authorization</td></tr>
+</table>
+<p>Full inventory: 213 route policies, 8 auth modes — see
+<code>configs/tasknode-api-inventory.md</code> and <code>docs/agent-integration.md</code>.</p>
+
+<h2>Failure-recovery demonstrations</h2>
+<p>Four reproducible demos in <code>scripts/failure_recovery_demo.py</code>
+(results: <code>outputs/derived/failure-recovery.json</code>):</p>
+<table>
+<tr><th>Demo</th><th>Result</th></tr>
+<tr><td>Session loss (WS failed on both endpoints → HTTP polling fallback)</td><td>Pass — 0 WS closes received; fallback 21/21 samples, seq strictly increasing</td></tr>
+<tr><td>Stale state (validated_age monitor, threshold 5 s)</td><td>Pass — observed ages 0–4 s, 0 flagged; synthetic age-47 record correctly triggers refetch</td></tr>
+<tr><td>Rejected evidence (unknownCmd, 3× 401, 415)</td><td>Pass — all classified terminal (do not retry the same payload)</td></tr>
+<tr><td>Fork / ordering (per-index hash uniqueness + time ordering)</td><td>Pass — 1 hash per index (8,001,283 and 8,001,284); synthetic conflicting pair correctly flagged; quorum rule 17/25</td></tr>
+</table>
+
+<h2>Findings (13)</h2>
+<table>
+<tr><th>ID</th><th>Severity</th><th>Finding</th></tr>
+<tr><td>F-01</td><td class="sev-Medium">Medium</td><td>Public WebSocket ledger stream requires authorization (401) — agents must poll</td></tr>
+<tr><td>F-02</td><td class="sev-Medium">Medium</td><td>Explorer health reports “rippled unreachable” while the explorer works</td></tr>
+<tr><td>F-03</td><td class="sev-Medium">Medium</td><td>Explorer metrics are cached/static (byte-identical ~10 min apart)</td></tr>
+<tr><td>F-04</td><td class="sev-Low">Low</td><td>Admin RPC methods blocked (403) — no public UNL enumeration from the node</td></tr>
+<tr><td>F-05</td><td class="sev-Low">Low</td><td>12 of 66 validators run pre-1.0.9 versions (all non-UNL)</td></tr>
+<tr><td>F-06</td><td class="sev-Low">Low</td><td>3 Atlanta hub nodes carry ~19% of P2P edges</td></tr>
+<tr><td>F-07</td><td class="sev-Low">Low</td><td>9 of 66 validators publish no domain; operator identity is domain-only</td></tr>
+<tr><td>F-08</td><td class="sev-Info">Info</td><td>Single-organization administration vs a community-domain UNL — independence unproven</td></tr>
+<tr><td>F-09</td><td class="sev-Info">Info</td><td>VHS topology summary <code>link_count: 0</code> contradicts its own node records (730 edges)</td></tr>
+<tr><td>F-10</td><td class="sev-Info">Info</td><td>Ledger retention ~51k ledgers on the probed node (~43 h)</td></tr>
+<tr><td>F-11</td><td class="sev-Low">Low</td><td>Task Node request switch and directory can diverge (network off, directory still lists)</td></tr>
+<tr><td>F-12</td><td class="sev-Info">Info</td><td>Fee burn directly observed and matches the whitepaper (10 drops/ledger)</td></tr>
+<tr><td>F-13</td><td class="sev-Low">Low</td><td>One node's peer count (21) is not the network size (71)</td></tr>
+</table>
+
+<h2>Reproduce</h2>
+<pre><code>./scripts/run_all.sh          # analysis + demos + live re-check + compare
+./scripts/clean_reproduce.sh  # fresh-copy run; writes outputs/fresh-clone-*
+python3 scripts/analyze.py    # recompute every headline number from outputs/
+python3 scripts/failure_recovery_demo.py
+./scripts/verify_digests.sh   # SHA256SUMS check</code></pre>
+<p>Observation window: 2026-11-13 02:29–02:44 UTC. Live values drift (ledger
+height grows ~20 ledgers/min); the compare script checks ranges and structural
+invariants for live values and exact equality only for deterministic
+recomputations. See <code>docs/methodology.md</code> for limitations.</p>
+</body>
+</html>
