@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/system/status",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 1.886,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 32331,
+  "fetched_at_utc": "2026-11-13T02:35:52Z",
+  "body_head": "{\"ok\":true,\"generatedAt\":\"2026-11-13T02:35:52.115Z\",\"database\":{\"configured\":true,\"enabled\":true,\"durable\":true,\"role\":\"web\",\"poolMax\":30,\"poolMaxSource\":\"role_default\",\"lastError\":\"Query read timeout\"},\"databasePool\":{\"configured\":true,\"enabled\":true,\"role\":\"web\",\"max\":30,\"maxSource\":\"role_default\",\"total\":20,\"idle\":11,\"waiting\":0,\"lastError\":\"Query read timeout\"},\"workerHeartbeats\":[{\"group\":\"app\",\"lastTickAt\":\"2026-11-13T02:35:04.154Z\",\"ageMs\":47961,\"stale\":false,\"thresholdMs\":120000,\"availability\":\"available\",\"coverage\":\"self\",\"storage\":{\"source\":\"in_process\",\"database\":\"db_unavailable\"}},"
+}

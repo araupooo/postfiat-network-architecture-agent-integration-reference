@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/tasks/detail",
+  "method": "GET",
+  "http_status": 400,
+  "rtt_s": 0.566,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 89,
+  "fetched_at_utc": "2026-11-13T02:42:02Z",
+  "body_head": "{\"ok\":false,\"error\":\"task_id_required\",\"message\":\"A taskId query parameter is required.\"}"
+}

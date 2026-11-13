@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/usage/actions",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.631,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 1192,
+  "fetched_at_utc": "2026-11-13T02:41:00Z",
+  "body_head": "{\"actions\":[{\"id\":\"top_up_start\",\"label\":\"Top up with ETH, USDC, or USDT\",\"path\":\"/api/usage/top-up/start\",\"method\":\"POST\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"actionRequired\":\"Use /api/usage/top-up/start to allocate the account deposit address.\",\"note\":\"Allocates one account-scoped Ethereum mainnet deposit address. This is a custodial top-up rail, not a wallet-connect flow.\"},{\"id\":\"top_up_sync\",\"label\":\"Refresh Ethereum deposits\",\"path\":\"/api/usage/top-up/sync\",\"method\":\"POST\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"actionRequired\":\"Use /api/usage/top-up/start to all"
+}

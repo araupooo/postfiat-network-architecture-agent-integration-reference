@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/readiness",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.45,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 1975,
+  "fetched_at_utc": "2026-11-13T02:35:50Z",
+  "body_head": "{\"generatedAt\":\"2026-11-13T02:35:51.297Z\",\"auth\":{\"configuredProviders\":[\"telegram\",\"discord\",\"x\",\"github\",\"email\"],\"devSessionReady\":false,\"emailLoginReady\":true,\"emailDeliveryMode\":\"resend\",\"launchReady\":true,\"blockers\":[]},\"wallet\":{\"pftlRpcConfigured\":true,\"pftlWssConfigured\":true,\"pftlRpcAuthConfigured\":true,\"balanceReadReady\":true,\"challengeProofReady\":true,\"seedStorageReady\":true,\"lifecycleActionsReady\":true,\"blockers\":[\"Wallet-bound payout confirmation screens are not implemented\"]},\"context\":{\"importReady\":false,\"editReady\":true,\"historyCacheReady\":true,\"encryptedCidHydrationReady\":tr"
+}
