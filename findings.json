@@ -1,0 +1,156 @@
+{
+  "findings": [
+    {
+      "id": "F-01",
+      "severity": "Medium",
+      "title": "Public WebSocket ledger stream requires authorization",
+      "observation": "wss://rpc.testnet.postfiat.org returns 401 on upgrade (443) and close 1006 on :6005; 0 ledger closes received. Same client receives closes from the XRPL public testnet WS.",
+      "evidence": [
+        "outputs/ws-ledger-443.jsonl",
+        "outputs/ws-ledger-6005.jsonl",
+        "outputs/ws-control-xrpl.jsonl"
+      ],
+      "remediation": "Publish the WS endpoint for anonymous ledger subscriptions (read-only, rate-limited), or document polling as the supported public pattern (30 s suffices for validated height; 3-5 s to track individual closes)."
+    },
+    {
+      "id": "F-02",
+      "severity": "Medium",
+      "title": "Explorer health endpoint reports 'rippled unreachable' while the explorer works",
+      "observation": "GET /api/v1/health returns {\"message\":\"rippled unreachable\"} while /api/v1/metrics returns data and the homepage is HTTP 200.",
+      "evidence": [
+        "outputs/explorer-testnet-health.json",
+        "outputs/explorer-testnet-metrics-1.json"
+      ],
+      "remediation": "Fix the health check to use the same rippled connection as metrics, or return structured status distinguishing P2P-socket failure from metrics-path failure."
+    },
+    {
+      "id": "F-03",
+      "severity": "Medium",
+      "title": "Explorer metrics are cached/static, not live",
+      "observation": "/api/v1/metrics byte-identical across two fetches ~10 min apart while the ledger advanced ~200 ledgers.",
+      "evidence": [
+        "outputs/explorer-testnet-metrics-1.json",
+        "outputs/explorer-testnet-metrics-2.json",
+        "outputs/cadence-run1.jsonl"
+      ],
+      "remediation": "Serve live values (or a short TTL with a generatedAt timestamp), or document the endpoint as a cached snapshot with its refresh interval."
+    },
+    {
+      "id": "F-04",
+      "severity": "Low",
+      "title": "Admin RPC methods blocked at the public proxy (no public UNL enumeration from the node)",
+      "observation": "validators and peers JSON-RPC methods return HTTP 403 Forbidden from rpc.testnet.postfiat.org.",
+      "evidence": [
+        "outputs/rpc-validators.json",
+        "outputs/rpc-peers.json",
+        "fixtures/vhs-postfiat.md"
+      ],
+      "remediation": "Publish a read-only, rate-limited UNL endpoint, or document the VHS API as the canonical public UNL source."
+    },
+    {
+      "id": "F-05",
+      "severity": "Low",
+      "title": "12 of 66 validators run pre-1.0.9 versions",
+      "observation": "Versions 1.0.9 (59 nodes), 1.0.4 (9), 1.0.0 (2), 1.0.8 (1). All 25 UNL members run 1.0.9; the 12 lagging validators are all non-UNL.",
+      "evidence": [
+        "outputs/derived/vhs.json",
+        "outputs/vhs-testnet-v1-network-validators.json.body"
+      ],
+      "remediation": "Gate UNL admission on the current release and publish the version distribution in the VHS API summary."
+    },
+    {
+      "id": "F-06",
+      "severity": "Low",
+      "title": "P2P topology concentrates on three Atlanta hub nodes",
+      "observation": "Three Atlanta nodes carry 46-47 inbound peers each (140 of 730 inbound edges, ~19%); top three countries hold 38 of 71 nodes.",
+      "evidence": [
+        "outputs/derived/vhs.json",
+        "outputs/derived/topology.md"
+      ],
+      "remediation": "Track hub concentration as a standing VHS metric and compare registry composition against the launch-topology proposal caps."
+    },
+    {
+      "id": "F-07",
+      "severity": "Low",
+      "title": "9 of 66 validators publish no domain; operator identity is domain-only",
+      "observation": "57/66 validators publish a domain, 55 verified; 9 publish none, 2 unverified.",
+      "evidence": [
+        "outputs/derived/vhs.json"
+      ],
+      "remediation": "Require a verified domain for UNL admission (all 25 current UNL members already have one) and publish the verification method."
+    },
+    {
+      "id": "F-08",
+      "severity": "Info",
+      "title": "Single-organization administration vs a community-domain UNL",
+      "observation": "Whitepaper: 'one organization administers the current validator fleet'; independently operated validators remain a proposal. Live UNL: 25 seats on 25 distinct community/operator domains; the 3 postfiat.org-domain validators are all non-UNL.",
+      "evidence": [
+        "fixtures/whitepaper-excerpts.md",
+        "outputs/derived/vhs.json"
+      ],
+      "remediation": "Publish operator-identity evidence (control-group checks, hosting/ASN diversity) so the independence claim becomes checkable."
+    },
+    {
+      "id": "F-09",
+      "severity": "Info",
+      "title": "VHS topology summary link_count: 0 contradicts its own node records",
+      "observation": "/v1/network/topology reports link_count 0 while its node records sum to 730 inbound and 730 outbound edges.",
+      "evidence": [
+        "outputs/vhs-testnet-v1-network-topology.json",
+        "outputs/vhs-testnet-v1-network-topology-nodes.json"
+      ],
+      "remediation": "Fix the summary to sum the node records, or drop the field. Consumers should sum per-node counts until then."
+    },
+    {
+      "id": "F-10",
+      "severity": "Info",
+      "title": "Ledger retention window is ~51k ledgers on the probed node",
+      "observation": "complete_ledgers 7,950,054-8,001,412 at the end of the cadence run (~43 hours at 3 s per ledger).",
+      "evidence": [
+        "outputs/cadence-run1.jsonl"
+      ],
+      "remediation": "Document the retention window on the RPC endpoint and point archive queries at the VHS service."
+    },
+    {
+      "id": "F-11",
+      "severity": "Low",
+      "title": "Task Node request switch and directory can diverge",
+      "observation": "Anonymous GET /api/tasks reports networkRequestEnabled false while GET /api/directory/rewarded-tasks still serves a 100-item network-task directory.",
+      "evidence": [
+        "outputs/tn-api-tasks.json",
+        "outputs/tn-api-directory-rewarded-tasks.json"
+      ],
+      "remediation": "Agents should read /api/tasks (live) for request eligibility and treat the directory as a historical record."
+    },
+    {
+      "id": "F-12",
+      "severity": "Info",
+      "title": "Fee burn directly observed and matches the whitepaper",
+      "observation": "total_coins fell 60 drops in 31 s between two ledger headers 11 ledgers apart - 10 drops per ledger, the base fee.",
+      "evidence": [
+        "outputs/rpc-ledger.json",
+        "outputs/rpc-ledger_data.json",
+        "outputs/derived/ledger.json"
+      ],
+      "remediation": "None (confirmation)."
+    },
+    {
+      "id": "F-13",
+      "severity": "Low",
+      "title": "One node's peer count (21) is not the network size (71)",
+      "observation": "Probed node reports peers 21 (constant across 21 samples) while the VHS crawler sees 71 nodes.",
+      "evidence": [
+        "outputs/cadence-run1.jsonl",
+        "outputs/vhs-testnet-v1-network-topology-nodes.json"
+      ],
+      "remediation": "Always pair a node's peers figure with the VHS topology count and label which one is quoted."
+    }
+  ],
+  "counts": {
+    "High": 0,
+    "Medium": 3,
+    "Low": 6,
+    "Info": 4,
+    "total": 13
+  }
+}

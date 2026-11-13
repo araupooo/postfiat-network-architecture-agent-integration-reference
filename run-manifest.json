@@ -1,0 +1,111 @@
+{
+  "title": "PostFiat Network Architecture and Agent Integration Reference \u2014 run manifest",
+  "observation_window_utc": "2026-11-13T02:29:32Z to 2026-11-13T02:44:32Z",
+  "build_completed_utc": "2026-11-13T03:11:11Z",
+  "environment": {
+    "os": "Linux VM",
+    "cpus": 4,
+    "python": "3.12.3",
+    "node": "24.22.1",
+    "openssl": "3.0.13"
+  },
+  "testnet": {
+    "rpc_host": "rpc.testnet.postfiat.org",
+    "network_id": 2025,
+    "software": "postfiatd 1.0.9",
+    "dns": "198.18.188.100"
+  },
+  "headline_numbers": {
+    "close_interval_s": {
+      "mean": 3.036,
+      "median": 3.0,
+      "min": 2.727,
+      "max": 3.333
+    },
+    "ledger_growth": {
+      "samples": 21,
+      "span_s": 600.0,
+      "first_seq": 8001214,
+      "last_seq": 8001412,
+      "growth": 198,
+      "ledgers_per_min": 19.8
+    },
+    "validation_quorum": 17,
+    "unl_validators": 25,
+    "validators_total": 66,
+    "topology_nodes": 71,
+    "topology_edges": 730,
+    "peers_probed_node": 21,
+    "proposers": 25,
+    "agreement_24h_missed": "48 of 1881457 (0.00255%)",
+    "agreement_1h_missed": 0,
+    "base_fee_drops": 10,
+    "fee_burn_drops_per_ledger": 10,
+    "tasknode_routes": 213,
+    "tasknode_auth_modes": 8
+  },
+  "findings": {
+    "High": 0,
+    "Medium": 3,
+    "Low": 6,
+    "Info": 4,
+    "total": 13
+  },
+  "fresh_environment_reproduction": {
+    "script": "scripts/clean_reproduce.sh",
+    "fresh_copy_dir": "/tmp/netarch-repro.CGxEFr (kept; do not delete until the task is rewarded)",
+    "exit_code": 0,
+    "checks_passed": "18/18",
+    "checks_failed": 0,
+    "compare_log": "outputs/fresh-clone-compare.log",
+    "live_recheck_at_utc": "2026-11-13T03:11:10Z",
+    "live_recheck_validated_seq": 8001938,
+    "live_recheck_vhs_validators": 66,
+    "live_recheck_vhs_unl": 25,
+    "live_recheck_vhs_nodes": 71
+  },
+  "digests": {
+    "file": "SHA256SUMS",
+    "entries": 129,
+    "verify_script": "scripts/verify_digests.sh",
+    "verify_result": "all OK, 0 failures"
+  },
+  "counts": {
+    "pack_files": 131,
+    "pack_size": "2.8M",
+    "outputs_files": 92,
+    "scripts": 12,
+    "docs": 9,
+    "fixtures": 9,
+    "configs": 3
+  },
+  "limitations": [
+    "Single 15-minute observation window; numbers are a snapshot.",
+    "Single vantage point (one public RPC node) for node-level figures; VHS API used for network-wide figures.",
+    "No WebSocket ledger stream: public WS requires authorization (401). Cadence derived from polling.",
+    "No consecutive ledger headers (8001203 and 8001214, 11 apart): parent-hash chain not fully verified; time ordering + per-index hash uniqueness checked instead.",
+    "No authenticated surface used: session/bearer Task Node routes documented from the public route registry only.",
+    "L1v2 (Consensus v2 + Cobalt) is specified design, not live on the testnet measured here.",
+    "Explorer /api/v1/metrics is cached/static; /api/v1/health is misleading.",
+    "VHS /v1/network/networks lists two webhook.site entries that look like test artifacts; reported as returned."
+  ],
+  "redactions": {
+    "reason": "Task Node public-directory probe outputs embedded per-user records (internal account IDs, wallet addresses, handles, display names). Validator-topology addresses (VHS) and the public genesis account are public ledger infrastructure and were NOT redacted.",
+    "script": "scripts/redact_operator_records.py",
+    "files": [
+      "outputs/tn-api-directory-leaderboard.json",
+      "outputs/tn-api-directory-leaderboard.json.body",
+      "outputs/tn-api-directory-rewarded-tasks.json",
+      "outputs/tn-api-directory-rewarded-tasks.json.body",
+      "outputs/tn-api-hive-projects.json.body",
+      "outputs/tn-api-system-status.json.body"
+    ],
+    "fields_redacted": [
+      "accountId -> acct_REDACTED",
+      "wallet/walletAddress -> rREDACTED",
+      "handle/displayName -> REDACTED"
+    ],
+    "preserved": "record counts, totals, scores, task titles, statuses, timestamps and all aggregate figures are unchanged; structure is unchanged",
+    "applied": "2026-11-13 (parent review, before publication)"
+  }
+}
