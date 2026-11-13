@@ -1,0 +1,2 @@
+{"event":"error","message":"[object ErrorEvent]","at":"2026-11-13T02:37:12.175Z"}
+{"event":"close","code":1006,"reason":"","at":"2026-11-13T02:37:12.190Z","summary":{"received":0,"closes":0,"firstTs":null,"lastTs":null,"startedAt":"2026-11-13T02:36:12.082Z"}}

@@ -1,0 +1,11 @@
+{
+  "url": "https://vhs.testnet.postfiat.org/v1/network/networks",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.5,
+  "content_type": "application/json; charset=utf-8",
+  "content_length": "370",
+  "body_bytes": 370,
+  "fetched_at_utc": "2026-11-13T02:42:03Z",
+  "body_head": "{\"result\":\"success\",\"count\":3,\"networks\":[{\"id\":\"test\",\"entry\":\"rpc.testnet.postfiat.org\",\"port\":2559,\"unls\":[\"rpc\"]},{\"id\":\"1\",\"entry\":\"11817ed9-54d3-4ac0-968a-9daaaf4fd9cb.webhook.site/crawljson-i3053m1812b58f\",\"port\":2459,\"unls\":[\"\"]},{\"id\":\"2\",\"entry\":\"aa1e2670-3740-48a1-b233-21f2437d63a4.webhook.site/i2645t18349f9bc#z\",\"port\":30001,\"unls\":[\"i2645t18349f9bunl\"]}]}"
+}

@@ -1,0 +1,4 @@
+{"event":"open","url":"wss://s.altnet.rippletest.net:51233","at":"2026-11-13T02:37:45.816Z"}
+{"event":"other","type":"response","at":"2026-11-13T02:37:45.946Z"}
+{"event":"ledgerClosed","ledger_index":22282428,"ledger_hash":"878A09EEBC5F7B39E239076A5E648E2C5B340D227A9AC4CCFFD1A2628EDBBD57","validated_ledgers":"13075065-22282428","txn_count":21,"fee_base":10,"at":"2026-11-13T02:37:48.619Z"}
+{"event":"close","code":1000,"reason":"","at":"2026-11-13T02:37:49.773Z","summary":{"received":2,"closes":1,"firstTs":null,"lastTs":null,"startedAt":"2026-11-13T02:37:34.544Z"}}
