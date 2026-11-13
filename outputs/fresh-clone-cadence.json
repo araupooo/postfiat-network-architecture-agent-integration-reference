@@ -1,0 +1,41 @@
+{
+  "close_interval_s": {
+    "max": 3.333,
+    "mean": 3.036,
+    "median": 3.0,
+    "min": 2.727
+  },
+  "complete_ledgers_first": "7950054-8001214",
+  "complete_ledgers_last": "7950054-8001412",
+  "converge_time_s_range": [
+    2,
+    2.01
+  ],
+  "first_seq": 8001214,
+  "first_wall_utc": "2026-11-13T02:34:32Z",
+  "growth": 198,
+  "last_seq": 8001412,
+  "last_wall_utc": "2026-11-13T02:44:32Z",
+  "ledgers_per_min": 19.8,
+  "peers": [
+    21
+  ],
+  "per_sample_seq_gaps": {
+    "9": 3,
+    "10": 16,
+    "11": 1
+  },
+  "proposers": [
+    25
+  ],
+  "rtt_s_mean": 0.927,
+  "samples": 21,
+  "span_s": 600.0,
+  "validated_age_range": [
+    0,
+    4
+  ],
+  "validation_quorum": [
+    17
+  ]
+}

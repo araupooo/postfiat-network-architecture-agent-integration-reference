@@ -1,0 +1,11 @@
+{
+  "url": "https://explorer.testnet.postfiat.org/api/v1/metrics",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.578,
+  "content_type": "application/json; charset=utf-8",
+  "content_length": "108",
+  "body_bytes": 108,
+  "fetched_at_utc": "2026-11-13T02:42:03Z",
+  "body_head": "{\"base_fee\":\"0.00001\",\"txn_sec\":\"0.09\",\"txn_ledger\":\"0.26\",\"ledger_interval\":\"3.022\",\"avg_fee\":\"0.00001000\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "host": "rpc.testnet.postfiat.org",
+  "method": "fee",
+  "params": {},
+  "http_status": 200,
+  "rtt_s": 0.679,
+  "fetched_at_utc": "2026-11-13T03:23:18Z",
+  "raw_body_bytes": 363,
+  "response": {
+    "result": {
+      "current_ledger_size": "0",
+      "current_queue_size": "0",
+      "drops": {
+        "base_fee": "10",
+        "median_fee": "5000",
+        "minimum_fee": "10",
+        "open_ledger_fee": "10"
+      },
+      "expected_ledger_size": "32",
+      "ledger_current_index": 8002181,
+      "levels": {
+        "median_level": "128000",
+        "minimum_level": "256",
+        "open_ledger_level": "256",
+        "reference_level": "256"
+      },
+      "max_queue_size": "2000",
+      "status": "success"
+    }
+  }
+}

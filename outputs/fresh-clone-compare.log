@@ -1,0 +1,102 @@
+=== run_all started 2026-11-13T03:23:15Z pack=/tmp/netarch-repro.5RRdhj/pack ===
+--- analyze.py ---
+wrote derived/cadence.json
+wrote derived/ledger.json
+wrote derived/vhs.json
+wrote derived/tasknode-probes.json
+wrote derived/rpc-probes.json
+OK: cadence 21 samples, 66 validators, 25 UNL, 71 nodes
+--- failure_recovery_demo.py ---
+--- topology.py ---
+wrote derived/topology.md (76 lines)
+--- probe_all.sh (live re-check) ---
+probing into outputs/live-recheck
+{
+  "url": "https://vhs.testnet.postfiat.org/v1/network/validators",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.636,
+  "content_type": "application/json; charset=utf-8",
+  "content_length": "51357",
+  "body_bytes": 51357,
+  "fetched_at_utc": "2026-11-13T03:23:19Z",
+  "body_head": "{\"result\":\"success\",\"count\":66,\"validators\":[{\"validation_public_key\":\"nHB28WprRtLAhV9H6mvhsUH181K3HGgYjoKaEKq3BdtJCUxYLGUU\",\"signing_key\":\"n94KXP7F2zwXzKX6YZ4N8T3KyCNrRRiXxbbKsjUviRfuWbdkUMd8\",\"master_key\":\"nHB28WprRtLAhV9H6mvhsUH181K3HGgYjoKaEKq3BdtJCUxYLGUU\",\"domain\":\"pf-chika2.ligaya.online\",\"domain_verified\":true,\"chain\":\"test\",\"server_version\":\"1.0.9\",\"networks\":\"test\",\"current_index\":8002174,\"ledger_hash\":\"453B85AC19D30640CAC21EE9376DE022FD6F8F0E62B19E7664B2643A778310D6\",\"agreement_1h\":{\"missed\":0,\"total\":1189,\"score\":\"1.00000\",\"incomplete\":false},\"agreement_24h\":{\"missed\":0,\"total\":285"
+}
+{
+  "url": "https://vhs.testnet.postfiat.org/v1/network/topology/nodes",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.564,
+  "content_type": "application/json; charset=utf-8",
+  "content_length": "32940",
+  "body_bytes": 32940,
+  "fetched_at_utc": "2026-11-13T03:23:20Z",
+  "body_head": "{\"result\":\"success\",\"count\":71,\"nodes\":[{\"node_public_key\":\"n9LYanpKcAGsZfBF8n8S4TPzQbMbi8naw32kjFD9Y5yknPR85fBx\",\"networks\":\"test\",\"complete_ledgers\":\"8001541-8002148\",\"ip\":\"96.30.199.55\",\"port\":2559,\"uptime\":2876830,\"version\":\"1.0.9\",\"server_state\":\"full\",\"io_latency_ms\":1,\"load_factor_server\":\"256\",\"inbound_count\":46,\"outbound_count\":10,\"lat\":\"33.78\",\"long\":\"-84.45\",\"country_code\":\"US\",\"country\":\"United States\",\"region\":\"Georgia\",\"region_code\":\"GA\",\"city\":\"Atlanta\",\"postal_code\":\"30318\",\"timezone\":\"America/New_York\"},{\"node_public_key\":\"n9L3BXxMfMTL9xKPkRNj1eHTrWpHxxVbBg36RNvhpjpUqVTiHbp9\","
+}
+{
+  "url": "https://explorer.testnet.postfiat.org/api/v1/metrics",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.451,
+  "content_type": "application/json; charset=utf-8",
+  "content_length": "108",
+  "body_bytes": 108,
+  "fetched_at_utc": "2026-11-13T03:23:21Z",
+  "body_head": "{\"base_fee\":\"0.00001\",\"txn_sec\":\"0.09\",\"txn_ledger\":\"0.26\",\"ledger_interval\":\"3.022\",\"avg_fee\":\"0.00001000\"}"
+}
+{
+  "url": "https://explorer.testnet.postfiat.org/api/v1/health",
+  "method": "GET",
+  "http_status": 500,
+  "rtt_s": 0.621,
+  "content_type": "application/json; charset=utf-8",
+  "content_length": "33",
+  "body_bytes": 33,
+  "fetched_at_utc": "2026-11-13T03:23:21Z",
+  "body_head": "{\"message\":\"rippled unreachable\"}"
+}
+{
+  "url": "https://tasknode.postfiat.org/api/health",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.692,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 125,
+  "fetched_at_utc": "2026-11-13T03:23:22Z",
+  "body_head": "{\"ok\":true,\"service\":\"tasknodeofficial\",\"environment\":\"production\",\"buildId\":\"prod\",\"uptimeSeconds\":11751,\"database\":\"ready\"}"
+}
+{
+  "url": "https://tasknode.postfiat.org/api/tasks",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.341,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 1949,
+  "fetched_at_utc": "2026-11-13T03:23:23Z",
+  "body_head": "{\"personalRequestEnabled\":true,\"networkRequestEnabled\":false,\"alphaRequestEnabled\":false,\"dailyRewardCap\":8,\"requests\":{\"items\":[],\"sync\":{\"source\":\"task_requests\",\"status\":\"wallet_required\",\"walletAddress\":null,\"requestCount\":0,\"lastUpdatedAt\":null}},\"outstanding\":[],\"verification\":[],\"refused\":[],\"rewarded\":[],\"sync\":{\"source\":\"task_projections\",\"status\":\"wallet_required\",\"walletAddress\":null,\"projectionCount\":0,\"lastSyncedAt\":null,\"requiresRefresh\":false,\"nextPollMs\":null,\"refreshReason\":\"\",\"activeRequestCount\":0,\"refreshTaskIds\":[]},\"networkTasks\":{\"schema\":\"pf.task_node.network_task_eligi"
+}
+probe_all done (fail=0)
+--- compare_reproduce.py ---
+PASS derived/cadence.json identical to shipped
+PASS derived/vhs.json identical to shipped
+PASS derived/ledger.json identical to shipped
+PASS failure-recovery demos all passed — demos: fork_ordering=True, rejected_evidence=True, session_loss=True, stale_state=True
+PASS derived/topology.md identical to shipped
+PASS live network_id == 2025 — 2025
+PASS live validation_quorum == 17 — 17
+PASS live build_version == 1.0.9 — 1.0.9
+PASS live validated seq > shipped last seq — live 8002180 vs shipped 8001412
+PASS live server_state == full — full
+PASS live peers >= 1 — 21
+PASS live base_fee == 10 drops — 10
+PASS live VHS validator count within 56..76 — 66
+PASS live VHS UNL count within 20..30 — 25
+PASS live VHS node count within 61..81 — 71
+PASS live explorer metrics well-formed — ['base_fee', 'txn_sec', 'txn_ledger', 'ledger_interval', 'avg_fee']
+PASS live Task Node tasks well-formed — personal=True network=False
+PASS live admin methods still 403 — 403
+
+18/18 checks passed, 0 failed
+=== run_all finished rc=0 2026-11-13T03:23:23Z ===
