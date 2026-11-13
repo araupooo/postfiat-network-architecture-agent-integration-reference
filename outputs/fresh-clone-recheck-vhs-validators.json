@@ -1,0 +1,11 @@
+{
+  "url": "https://vhs.testnet.postfiat.org/v1/network/validators",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.636,
+  "content_type": "application/json; charset=utf-8",
+  "content_length": "51357",
+  "body_bytes": 51357,
+  "fetched_at_utc": "2026-11-13T03:23:19Z",
+  "body_head": "{\"result\":\"success\",\"count\":66,\"validators\":[{\"validation_public_key\":\"nHB28WprRtLAhV9H6mvhsUH181K3HGgYjoKaEKq3BdtJCUxYLGUU\",\"signing_key\":\"n94KXP7F2zwXzKX6YZ4N8T3KyCNrRRiXxbbKsjUviRfuWbdkUMd8\",\"master_key\":\"nHB28WprRtLAhV9H6mvhsUH181K3HGgYjoKaEKq3BdtJCUxYLGUU\",\"domain\":\"pf-chika2.ligaya.online\",\"domain_verified\":true,\"chain\":\"test\",\"server_version\":\"1.0.9\",\"networks\":\"test\",\"current_index\":8002174,\"ledger_hash\":\"453B85AC19D30640CAC21EE9376DE022FD6F8F0E62B19E7664B2643A778310D6\",\"agreement_1h\":{\"missed\":0,\"total\":1189,\"score\":\"1.00000\",\"incomplete\":false},\"agreement_24h\":{\"missed\":0,\"total\":285"
+}

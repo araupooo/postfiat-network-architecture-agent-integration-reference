@@ -1,0 +1,119 @@
+{
+  "agreement_1h": {
+    "miss_rate_pct": 0.0,
+    "missed": 0,
+    "total": 78474
+  },
+  "agreement_24h": {
+    "miss_rate_pct": 0.00255,
+    "missed": 48,
+    "total": 1881457
+  },
+  "agreement_24h_perfect": 62,
+  "base_fee_drops": [
+    10
+  ],
+  "current_index_range": [
+    8001283,
+    8001284
+  ],
+  "distinct_hashes_per_index": {
+    "8001283": 1,
+    "8001284": 1
+  },
+  "domain_verified": 55,
+  "hub_nodes": [
+    {
+      "city": "Atlanta",
+      "country": "United States",
+      "inbound": 47,
+      "outbound": 10,
+      "pubkey_prefix": "n9M7RRXWAEZYgFBH"
+    },
+    {
+      "city": "Atlanta",
+      "country": "United States",
+      "inbound": 47,
+      "outbound": 10,
+      "pubkey_prefix": "n9K5JWvHTSyLgYdD"
+    },
+    {
+      "city": "Atlanta",
+      "country": "United States",
+      "inbound": 46,
+      "outbound": 10,
+      "pubkey_prefix": "n9LYanpKcAGsZfBF"
+    }
+  ],
+  "inbound_total": 730,
+  "io_latency_ms_median": 1.0,
+  "non_unl_count": 41,
+  "outbound_total": 730,
+  "partial": 0,
+  "postfiat_org_domain": 3,
+  "postfiat_org_domain_unl": 0,
+  "revoked": 0,
+  "server_state": {
+    "full": 58,
+    "null": 13
+  },
+  "server_versions": {
+    "1.0.0": 2,
+    "1.0.4": 9,
+    "1.0.8": 1,
+    "1.0.9": 54
+  },
+  "topology_countries_distinct": 17,
+  "topology_countries_top": [
+    [
+      "United States",
+      17
+    ],
+    [
+      "Philippines",
+      11
+    ],
+    [
+      "Germany",
+      10
+    ],
+    [
+      "United Kingdom",
+      5
+    ],
+    [
+      "France",
+      5
+    ],
+    [
+      "Canada",
+      3
+    ],
+    [
+      "Singapore",
+      3
+    ],
+    [
+      "Switzerland",
+      3
+    ]
+  ],
+  "topology_nodes": 71,
+  "topology_versions": {
+    "1.0.0": 2,
+    "1.0.4": 9,
+    "1.0.8": 1,
+    "1.0.9": 59
+  },
+  "unl_agreement_24h": {
+    "missed": 6,
+    "total": 714025
+  },
+  "unl_all_have_domains": true,
+  "unl_all_on_1_0_9": true,
+  "unl_count": 25,
+  "unl_share_pct": 37.9,
+  "validators_total": 66,
+  "with_domain": 57,
+  "zero_inbound_nodes": 13
+}

@@ -1,0 +1,29 @@
+{
+  "host": "rpc.testnet.postfiat.org",
+  "method": "account_info",
+  "params": {
+    "account": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
+    "ledger_index": "validated"
+  },
+  "http_status": 200,
+  "rtt_s": 0.749,
+  "fetched_at_utc": "2026-11-13T02:34:17Z",
+  "raw_body_bytes": 386,
+  "response": {
+    "result": {
+      "account": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
+      "error": "actNotFound",
+      "error_code": 19,
+      "error_message": "Account not found.",
+      "ledger_hash": "93A06C76FD28F5490669F163BA46E5FEA418F12DCD5F1BBC0D02A977513411EE",
+      "ledger_index": 8001209,
+      "request": {
+        "account": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
+        "command": "account_info",
+        "ledger_index": "validated"
+      },
+      "status": "error",
+      "validated": true
+    }
+  }
+}

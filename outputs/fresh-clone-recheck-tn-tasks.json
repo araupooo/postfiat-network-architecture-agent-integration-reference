@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/tasks",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.341,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 1949,
+  "fetched_at_utc": "2026-11-13T03:23:23Z",
+  "body_head": "{\"personalRequestEnabled\":true,\"networkRequestEnabled\":false,\"alphaRequestEnabled\":false,\"dailyRewardCap\":8,\"requests\":{\"items\":[],\"sync\":{\"source\":\"task_requests\",\"status\":\"wallet_required\",\"walletAddress\":null,\"requestCount\":0,\"lastUpdatedAt\":null}},\"outstanding\":[],\"verification\":[],\"refused\":[],\"rewarded\":[],\"sync\":{\"source\":\"task_projections\",\"status\":\"wallet_required\",\"walletAddress\":null,\"projectionCount\":0,\"lastSyncedAt\":null,\"requiresRefresh\":false,\"nextPollMs\":null,\"refreshReason\":\"\",\"activeRequestCount\":0,\"refreshTaskIds\":[]},\"networkTasks\":{\"schema\":\"pf.task_node.network_task_eligi"
+}

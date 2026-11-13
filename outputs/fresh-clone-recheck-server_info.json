@@ -1,0 +1,87 @@
+{
+  "host": "rpc.testnet.postfiat.org",
+  "method": "server_info",
+  "params": {},
+  "http_status": 200,
+  "rtt_s": 1.119,
+  "fetched_at_utc": "2026-11-13T03:23:16Z",
+  "raw_body_bytes": 1169,
+  "response": {
+    "result": {
+      "info": {
+        "build_version": "1.0.9",
+        "complete_ledgers": "7950054-8002180",
+        "hostid": "MUFF",
+        "initial_sync_duration_us": "144067489",
+        "io_latency_ms": 1,
+        "jq_trans_overflow": "0",
+        "last_close": {
+          "converge_time_s": 2.001,
+          "proposers": 25
+        },
+        "load_factor": 1,
+        "network_id": 2025,
+        "peer_disconnects": "82",
+        "peer_disconnects_resources": "0",
+        "peers": 21,
+        "ports": [
+          {
+            "port": "2559",
+            "protocol": [
+              "peer"
+            ]
+          },
+          {
+            "port": "6005",
+            "protocol": [
+              "ws"
+            ]
+          },
+          {
+            "port": "50051",
+            "protocol": [
+              "grpc"
+            ]
+          }
+        ],
+        "pubkey_node": "n9K4AomBUHA8XGwXtZs6qfCjXm5aXre9UchiD6oGuZx1UeRLUweE",
+        "server_state": "full",
+        "server_state_duration_us": "1420437230547",
+        "state_accounting": {
+          "connected": {
+            "duration_us": "42011874",
+            "transitions": "3"
+          },
+          "disconnected": {
+            "duration_us": "100053977",
+            "transitions": "3"
+          },
+          "full": {
+            "duration_us": "1420437230547",
+            "transitions": "1"
+          },
+          "syncing": {
+            "duration_us": "2001613",
+            "transitions": "1"
+          },
+          "tracking": {
+            "duration_us": "21",
+            "transitions": "1"
+          }
+        },
+        "time": "2026-Nov-13 03:23:17.395299 UTC",
+        "uptime": 1420581,
+        "validated_ledger": {
+          "age": 1,
+          "base_fee_xrp": 1e-05,
+          "hash": "8B23BF203F9A6AD81F97BF22A5FC362AC2BDB2682C2526D1F84F792B1178F866",
+          "reserve_base_xrp": 10,
+          "reserve_inc_xrp": 2,
+          "seq": 8002180
+        },
+        "validation_quorum": 17
+      },
+      "status": "success"
+    }
+  }
+}

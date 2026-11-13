@@ -1,0 +1,20 @@
+{
+  "host": "rpc.testnet.postfiat.org",
+  "method": "no_such_method",
+  "params": {},
+  "http_status": 200,
+  "rtt_s": 0.693,
+  "fetched_at_utc": "2026-11-13T02:41:43Z",
+  "raw_body_bytes": 142,
+  "response": {
+    "result": {
+      "error": "unknownCmd",
+      "error_code": 32,
+      "error_message": "Unknown method.",
+      "request": {
+        "command": "no_such_method"
+      },
+      "status": "error"
+    }
+  }
+}
