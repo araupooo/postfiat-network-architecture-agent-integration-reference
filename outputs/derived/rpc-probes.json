@@ -1,0 +1,50 @@
+{
+  "rpc-account_info-genesis.json": {
+    "fetched_at_utc": "2026-11-13T02:34:17Z",
+    "http_status": 200,
+    "method": "account_info",
+    "rtt_s": 0.749
+  },
+  "rpc-fee.json": {
+    "fetched_at_utc": "2026-11-13T02:34:01Z",
+    "http_status": 200,
+    "method": "fee",
+    "rtt_s": 0.694
+  },
+  "rpc-invalid-method.json": {
+    "fetched_at_utc": "2026-11-13T02:41:43Z",
+    "http_status": 200,
+    "method": "no_such_method",
+    "rtt_s": 0.693
+  },
+  "rpc-ledger.json": {
+    "fetched_at_utc": "2026-11-13T02:34:00Z",
+    "http_status": 200,
+    "method": "ledger",
+    "rtt_s": 0.907
+  },
+  "rpc-ledger_closed.json": {
+    "fetched_at_utc": "2026-11-13T02:34:02Z",
+    "http_status": 200,
+    "method": "ledger_closed",
+    "rtt_s": 0.813
+  },
+  "rpc-ledger_data.json": {
+    "fetched_at_utc": "2026-11-13T02:34:31Z",
+    "http_status": 200,
+    "method": "ledger_data",
+    "rtt_s": 0.865
+  },
+  "rpc-peers.json": {
+    "fetched_at_utc": "2026-11-13T02:34:16Z",
+    "http_status": 403,
+    "method": "peers",
+    "rtt_s": 0.798
+  },
+  "rpc-validators.json": {
+    "fetched_at_utc": "2026-11-13T02:34:15Z",
+    "http_status": 403,
+    "method": "validators",
+    "rtt_s": 0.87
+  }
+}

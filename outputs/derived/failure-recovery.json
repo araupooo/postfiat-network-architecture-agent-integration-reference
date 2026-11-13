@@ -1,0 +1,103 @@
+{
+  "all_passed": true,
+  "demos": {
+    "fork_ordering": {
+      "detector_flags_synthetic_pair": true,
+      "limitation": "full parent-hash chain verification needs consecutive headers; this pack holds headers 8001203 and 8001214 (11 apart), so only time ordering and per-index hash uniqueness are checked, not the complete hash chain.",
+      "passed": true,
+      "quorum_rule": "a ledger is treated as validated only when >=17 of the 25 UNL validators agree on one hash (validation_quorum 17, observed in every cadence sample); a single conflicting validation cannot override the quorum.",
+      "real_divergent_indices": {},
+      "real_hashes_per_index": {
+        "8001283": 1,
+        "8001284": 1
+      },
+      "real_indices_checked": [
+        8001283,
+        8001284
+      ],
+      "real_time_ordering_holds": true,
+      "synthetic_conflicting_pair": {
+        "hash_a": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "hash_b": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+        "index": 8001284,
+        "synthetic": true
+      }
+    },
+    "rejected_evidence": {
+      "cases": [
+        {
+          "class": "terminal_do_not_retry_same_payload",
+          "error": "unknownCmd",
+          "error_code": 32,
+          "name": "rpc_unknown_method",
+          "source": "rpc-invalid-method.json",
+          "status": "error"
+        },
+        {
+          "class": "terminal_do_not_retry_same_payload",
+          "error": "task_login_required",
+          "http": 401,
+          "name": "task_action",
+          "source": "tn-post-tasks-action.noauth.txt"
+        },
+        {
+          "class": "terminal_do_not_retry_same_payload",
+          "error": "task_request_login_required",
+          "http": 401,
+          "name": "task_request",
+          "source": "tn-post-tasks-request.noauth.txt"
+        },
+        {
+          "class": "terminal_do_not_retry_same_payload",
+          "error": "task_submission_login_required",
+          "http": 401,
+          "name": "task_submission",
+          "source": "tn-post-tasks-submission.noauth.txt"
+        }
+      ],
+      "passed": true,
+      "recovery_procedure": "on a terminal rejection, fix the request (valid method; a signed-in session for mutations) and resubmit as a new request; never retry the identical payload. On 5xx/timeout/429 only, retry with backoff. The Task Node 415 seen earlier was a contract error (missing Content-Type: application/json), also terminal for that exact request."
+    },
+    "session_loss": {
+      "control_ws_xrpl_received_closes": true,
+      "fallback": "http_poll_server_info",
+      "fallback_samples": 21,
+      "fallback_seq_first": 8001214,
+      "fallback_seq_last": 8001412,
+      "fallback_seq_monotonic": true,
+      "passed": true,
+      "recovery_procedure": "on WS close/error: stop subscribing, poll server_info every 30s, compare validated_seq with the last known seq, resume from the new validated ledger; treat any gap as a resync, not as lost data (ledgers are immutable once validated).",
+      "ws_443_closes_received": 0,
+      "ws_443_events": 2,
+      "ws_6005_closes_received": 0,
+      "ws_6005_events": 2,
+      "ws_failed_both_endpoints": true
+    },
+    "stale_state": {
+      "observed_age_range": [
+        0,
+        4
+      ],
+      "passed": true,
+      "real_samples_flagged_stale": 0,
+      "recovery_procedure": "if validated_age > 5s, discard the cached header and re-fetch server_info + ledger(validated); never act on a header older than the threshold; a node that stays stale is excluded from quorum math until it resyncs.",
+      "synthetic_record": {
+        "complete_ledgers": "7950054-8001214",
+        "converge_time_s": 2,
+        "load_factor": 1,
+        "peers": 21,
+        "proposers": 25,
+        "rtt_s": 0.836,
+        "sample": 0,
+        "synthetic": true,
+        "validated_age": 47,
+        "validated_seq": 8001214,
+        "validation_quorum": 17,
+        "wall_utc": "2026-11-13T02:34:32Z"
+      },
+      "synthetic_refetch_decision": "refetch",
+      "threshold_s": 5
+    }
+  },
+  "generated_at_utc": "2026-11-13T02:47:20Z"
+}

@@ -1,0 +1,142 @@
+{
+  "tn-api-app-state.json": {
+    "body_bytes": 17602,
+    "body_head": "{\"generatedAt\":\"2026-11-13T02:35:56.486Z\",\"session\":{\"accountLinks\":[{\"id\":\"telegram\",\"label\":\"Telegram\",\"kind\":\"telegram_login\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"startPath\":\"/api/aut",
+    "fetched_at_utc": "2026-11-13T02:35:55Z",
+    "http_status": 200,
+    "rtt_s": 0.564
+  },
+  "tn-api-auth-providers.json": {
+    "body_bytes": 2204,
+    "body_head": "{\"providers\":[{\"id\":\"telegram\",\"label\":\"Telegram\",\"kind\":\"telegram_login\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"startPath\":\"/api/auth/start/telegram\",\"callbackPath\":\"/api/auth/callback/te",
+    "fetched_at_utc": "2026-11-13T02:35:58Z",
+    "http_status": 200,
+    "rtt_s": 0.545
+  },
+  "tn-api-chat-modes.json": {
+    "body_bytes": 3141,
+    "body_head": "{\"modes\":[{\"label\":\"Instant\",\"provider\":\"vercel\",\"providerLabel\":\"Vercel AI Gateway\",\"model\":\"deepseek/deepseek-v4.1-flash-1017\",\"configured\":true,\"primaryConfigured\":true,\"backupConfigured\":false,\"ba",
+    "fetched_at_utc": "2026-11-13T02:35:53Z",
+    "http_status": 200,
+    "rtt_s": 0.5
+  },
+  "tn-api-context-actions.json": {
+    "body_bytes": 1610,
+    "body_head": "{\"actions\":[{\"id\":\"import_shared_url\",\"label\":\"Import shared URL\",\"path\":\"/api/context/import/start\",\"method\":\"POST\",\"configured\":true,\"enabled\":false,\"status\":\"disabled\",\"actionRequired\":\"Implement U",
+    "fetched_at_utc": "2026-11-13T02:40:59Z",
+    "http_status": 200,
+    "rtt_s": 0.609
+  },
+  "tn-api-directory-leaderboard.json": {
+    "body_bytes": 276491,
+    "body_head": "{\"ok\":true,\"document\":{\"generatedAt\":\"2026-11-13T02:35:54.770Z\",\"rankFormula\":{\"networkTaskWeight\":3,\"personalTaskWeight\":1,\"rewardDivisor\":25000,\"alignmentWeight\":1,\"label\":\"3x network tasks + person",
+    "fetched_at_utc": "2026-11-13T02:35:54Z",
+    "http_status": 200,
+    "rtt_s": 0.782
+  },
+  "tn-api-directory-rewarded-tasks.json": {
+    "body_bytes": 205446,
+    "body_head": "{\"ok\":true,\"document\":{\"ok\":true,\"generatedAt\":\"2026-11-13T02:40:56.794Z\",\"taskKind\":\"network\",\"limit\":100,\"policy\":{\"visibility\":\"directory_public_discoverable_operator_tasks\",\"taskDetail\":\"hive_task",
+    "fetched_at_utc": "2026-11-13T02:40:56Z",
+    "http_status": 200,
+    "rtt_s": 2.182
+  },
+  "tn-api-health.json": {
+    "body_bytes": 124,
+    "body_head": "{\"ok\":true,\"service\":\"tasknodeofficial\",\"environment\":\"production\",\"buildId\":\"prod\",\"uptimeSeconds\":8898,\"database\":\"ready\"}",
+    "fetched_at_utc": "2026-11-13T02:35:50Z",
+    "http_status": 200,
+    "rtt_s": 1.151
+  },
+  "tn-api-hive-bm-feed-board.json": {
+    "body_bytes": 23395,
+    "body_head": "{\"ok\":true,\"board\":{\"id\":\"board_pf_terminal\",\"title\":\"PF Terminal\",\"status\":\"active\",\"phase_label\":\"Submission review\"},\"agent\":{\"online\":true,\"last_seen\":\"2026-11-13T02:36:52.925Z\"},\"budget\":{\"daily_",
+    "fetched_at_utc": "2026-11-13T02:37:13Z",
+    "http_status": 200,
+    "rtt_s": 0.753
+  },
+  "tn-api-hive-bm-feed.json": {
+    "body_bytes": 218,
+    "body_head": "{\"ok\":false,\"error\":\"unknown_board\",\"boards\":[\"board_community_promotion\",\"board_pf_terminal\",\"board_postfiat_l1v2\",\"board_ai_l1_governance\",\"board_tasknode_fixes\",\"board_capital_markets\",\"board_value",
+    "fetched_at_utc": "2026-11-13T02:35:55Z",
+    "http_status": 400,
+    "rtt_s": 0.625
+  },
+  "tn-api-hive-projects.json": {
+    "body_bytes": 1486087,
+    "body_head": "{\"ok\":true,\"document\":{\"generatedAt\":\"2026-11-13T00:40:29.202Z\",\"projectIds\":[\"board_community_promotion\",\"board_pf_terminal\",\"board_postfiat_l1v2\",\"board_ai_l1_governance\",\"board_tasknode_fixes\",\"boa",
+    "fetched_at_utc": "2026-11-13T02:40:58Z",
+    "http_status": 200,
+    "rtt_s": 1.173
+  },
+  "tn-api-readiness.json": {
+    "body_bytes": 1975,
+    "body_head": "{\"generatedAt\":\"2026-11-13T02:35:51.297Z\",\"auth\":{\"configuredProviders\":[\"telegram\",\"discord\",\"x\",\"github\",\"email\"],\"devSessionReady\":false,\"emailLoginReady\":true,\"emailDeliveryMode\":\"resend\",\"launchR",
+    "fetched_at_utc": "2026-11-13T02:35:50Z",
+    "http_status": 200,
+    "rtt_s": 0.45
+  },
+  "tn-api-session.json": {
+    "body_bytes": 2722,
+    "body_head": "{\"accountLinks\":[{\"id\":\"telegram\",\"label\":\"Telegram\",\"kind\":\"telegram_login\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"startPath\":\"/api/auth/start/telegram\",\"callbackPath\":\"/api/auth/callback",
+    "fetched_at_utc": "2026-11-13T02:35:56Z",
+    "http_status": 200,
+    "rtt_s": 0.712
+  },
+  "tn-api-system-status.json": {
+    "body_bytes": 32331,
+    "body_head": "{\"ok\":true,\"generatedAt\":\"2026-11-13T02:35:52.115Z\",\"database\":{\"configured\":true,\"enabled\":true,\"durable\":true,\"role\":\"web\",\"poolMax\":30,\"poolMaxSource\":\"role_default\",\"lastError\":\"Query read timeout",
+    "fetched_at_utc": "2026-11-13T02:35:52Z",
+    "http_status": 200,
+    "rtt_s": 1.886
+  },
+  "tn-api-tasks-detail.json": {
+    "body_bytes": 89,
+    "body_head": "{\"ok\":false,\"error\":\"task_id_required\",\"message\":\"A taskId query parameter is required.\"}",
+    "fetched_at_utc": "2026-11-13T02:42:02Z",
+    "http_status": 400,
+    "rtt_s": 0.566
+  },
+  "tn-api-tasks.json": {
+    "body_bytes": 1949,
+    "body_head": "{\"personalRequestEnabled\":true,\"networkRequestEnabled\":false,\"alphaRequestEnabled\":false,\"dailyRewardCap\":8,\"requests\":{\"items\":[],\"sync\":{\"source\":\"task_requests\",\"status\":\"wallet_required\",\"walletAd",
+    "fetched_at_utc": "2026-11-13T02:35:57Z",
+    "http_status": 200,
+    "rtt_s": 0.6
+  },
+  "tn-api-usage-actions.json": {
+    "body_bytes": 1192,
+    "body_head": "{\"actions\":[{\"id\":\"top_up_start\",\"label\":\"Top up with ETH, USDC, or USDT\",\"path\":\"/api/usage/top-up/start\",\"method\":\"POST\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"actionRequired\":\"Use /api/",
+    "fetched_at_utc": "2026-11-13T02:41:00Z",
+    "http_status": 200,
+    "rtt_s": 0.631
+  },
+  "tn-api-wallet-actions.json": {
+    "body_bytes": 2844,
+    "body_head": "{\"actions\":[{\"id\":\"create_start\",\"label\":\"Create seed wallet\",\"path\":\"/api/wallet/create/start\",\"method\":\"POST\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"actionRequired\":\"OAuth accounts can r",
+    "fetched_at_utc": "2026-11-13T02:40:58Z",
+    "http_status": 200,
+    "rtt_s": 0.522
+  },
+  "tn-connect-md.json": {
+    "body_bytes": 747,
+    "body_head": "# Connect to Task Node\n\nRun this in the terminal where you (the agent) run:\n\n    curl -fsSL https://tasknode.postfiat.org/install | sh\n\nIt prints a link and a code. Show both to the user and ask them ",
+    "fetched_at_utc": "2026-11-13T02:35:59Z",
+    "http_status": 200,
+    "rtt_s": 0.693
+  },
+  "tn-post-tasks-action-noauth.json": {
+    "body_bytes": 134,
+    "body_head": "{\"ok\":false,\"route\":\"task_action\",\"error\":\"unsupported_media_type\",\"message\":\"The request body does not match this route's contract.\"}",
+    "fetched_at_utc": "2026-11-13T02:41:44Z",
+    "http_status": 415,
+    "rtt_s": 0.613
+  },
+  "tn-post-tasks-request-noauth.json": {
+    "body_bytes": 135,
+    "body_head": "{\"ok\":false,\"route\":\"task_request\",\"error\":\"unsupported_media_type\",\"message\":\"The request body does not match this route's contract.\"}",
+    "fetched_at_utc": "2026-11-13T02:41:45Z",
+    "http_status": 415,
+    "rtt_s": 0.573
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "base_fee_drops": 10,
+  "burned_drops": 60,
+  "close_time_resolution_s": 10,
+  "current_queue_size": 0,
+  "elapsed_s": 31.0,
+  "first_seq": 8001203,
+  "first_total_coins_drops": 99999999967500634,
+  "max_queue_size": 2000,
+  "median_fee_drops": 5000,
+  "reserve_base_drops": null,
+  "second_seq": 8001214,
+  "second_total_coins_drops": 99999999967500574
+}
