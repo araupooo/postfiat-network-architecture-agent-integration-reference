@@ -1,0 +1,50 @@
+# Public endpoints used by this pack — all unauthenticated, all probed 2026-11-13.
+# "status" is the result of the probe recorded in outputs/; it is a measurement
+# at the fetch time, not a standing guarantee.
+
+testnet_json_rpc:
+  url: "https://rpc.testnet.postfiat.org/"
+  method: POST (JSON-RPC 2.0-style, {"method": ..., "params": [...]})
+  network_id: 2025
+  software: postfiatd 1.0.9 (from server_info build_version)
+  public_methods_ok: [server_info, ledger, ledger_closed, ledger_data, fee, account_info]
+  admin_methods_blocked_403: [validators, peers]
+  unknown_method: {http: 200, error: unknownCmd, error_code: 32}
+  websocket: "wss://rpc.testnet.postfiat.org (443) and :6005 — both FAILED (401 on upgrade / close 1006); see F-01"
+  dns: 198.18.188.100
+  http_51234: "no response (empty body)"
+
+validator_history_service:
+  base: "https://vhs.testnet.postfiat.org"
+  endpoints:
+    - {path: /v1/health, status: 200, body: '{"count":"12"}'}
+    - {path: /v1/validators, status: 200, note: "returns the API index, not validators"}
+    - {path: /v1/network/networks, status: 200, count: 3}
+    - {path: /v1/network/topology, status: 200, node_count: 71, link_count: 0}
+    - {path: /v1/network/topology/nodes, status: 200, count: 71}
+    - {path: /v1/network/validators, status: 200, count: 66}
+  source: validator-history-service docs/POSTFIAT.md + docs/DEPLOYMENT.md (fixture copies)
+
+explorer_testnet:
+  base: "https://explorer.testnet.postfiat.org"
+  endpoints:
+    - {path: /api/v1/metrics, status: 200, note: "values identical across two fetches ~10 min apart — cached/static, see F-03"}
+    - {path: /api/v1/health, status: 200, body: '{"message":"rippled unreachable"}', note: "misleading while metrics works, see F-02"}
+  other_networks: ["https://explorer.devnet.postfiat.org", "https://explorer.postfiat.org"]
+
+task_node:
+  base: "https://tasknode.postfiat.org"
+  public_get_ok: [api/health, api/readiness, api/system/status, api/app-state, api/session,
+                  api/tasks, api/auth/providers, api/chat/modes, api/directory/leaderboard,
+                  api/directory/rewarded-tasks, api/hive/projects, api/hive/bm-feed?board=...,
+                  api/wallet/actions, api/context/actions, api/usage/actions, connect.md]
+  public_get_400: ["api/hive/bm-feed (no board -> unknown_board)",
+                   "api/tasks/detail (no taskId -> task_id_required)"]
+  post_without_session_401: [api/tasks/action, api/tasks/request, api/tasks/submission]
+  post_without_content_type_415: [api/tasks/action, api/tasks/request]
+  auth_modes_source: fixtures/tasknode-api-reference.md (213 route policies, 8 auth modes)
+
+docs:
+  - {url: "https://docs.postfiat.org", status: "200 (curl, 2026-11-13 02:41 UTC)", note: "Notion-hosted docs site"}
+  - {url: "https://postfiat.org/whitepaper/", status: "crawled 2026-11-13 02:30 UTC"}
+  - {url: "https://postfiat.org/", status: "crawled 2026-11-13 02:29 UTC"}
