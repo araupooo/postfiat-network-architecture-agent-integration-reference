@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/hive/bm-feed?board=board_pf_terminal",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.753,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 23395,
+  "fetched_at_utc": "2026-11-13T02:37:13Z",
+  "body_head": "{\"ok\":true,\"board\":{\"id\":\"board_pf_terminal\",\"title\":\"PF Terminal\",\"status\":\"active\",\"phase_label\":\"Submission review\"},\"agent\":{\"online\":true,\"last_seen\":\"2026-11-13T02:36:52.925Z\"},\"budget\":{\"daily_budget_pft\":50000,\"per_task_cap_pft\":5000,\"per_user_7d_cap_pft\":60000,\"spent_today_pft\":0},\"actions\":[{\"id\":\"bmaudit_b8b90823-6711-4084-b66c-5f8ac1b40a67\",\"actor\":\"board_manager_pfterminal\",\"command\":\"journal_append\",\"created_at\":\"2026-11-13T02:35:28.231Z\",\"task_id\":\"\",\"decision\":\"\",\"requested_pft\":null,\"clamped_pft\":null,\"reward_min\":null,\"reward_max\":null,\"need\":\"\",\"reason\":\"\",\"caps_applied\":[],"
+}

@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/health",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 1.151,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 124,
+  "fetched_at_utc": "2026-11-13T02:35:50Z",
+  "body_head": "{\"ok\":true,\"service\":\"tasknodeofficial\",\"environment\":\"production\",\"buildId\":\"prod\",\"uptimeSeconds\":8898,\"database\":\"ready\"}"
+}

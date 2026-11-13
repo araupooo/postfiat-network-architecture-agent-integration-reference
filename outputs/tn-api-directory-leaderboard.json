@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/directory/leaderboard",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.782,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 276491,
+  "fetched_at_utc": "2026-11-13T02:35:54Z",
+  "body_head": "{\"ok\":true,\"document\":{\"generatedAt\":\"2026-11-13T02:35:54.770Z\",\"rankFormula\":{\"networkTaskWeight\":3,\"personalTaskWeight\":1,\"rewardDivisor\":25000,\"alignmentWeight\":1,\"label\":\"3x network tasks + personal tasks + rewards/25000 + alignment\",\"alignmentWindowDays\":30},\"policy\":{\"visibility\":\"public_discoverable_only\"},\"totals\":{\"operators\":83,\"tasksRewarded\":3527,\"pftDistributed\":5370309.24},\"operators\":[{\"accountId\":\"acct_REDACTED\",\"handle\":\"REDACTED\",\"displayName\":\"REDACTED\",\"wallet\":\"rREDACTED\",\"networkTasks\":18,\"personalTasks\":579,\"r"
+}

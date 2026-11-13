@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/directory/rewarded-tasks",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 2.182,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 205446,
+  "fetched_at_utc": "2026-11-13T02:40:56Z",
+  "body_head": "{\"ok\":true,\"document\":{\"ok\":true,\"generatedAt\":\"2026-11-13T02:40:56.794Z\",\"taskKind\":\"network\",\"limit\":100,\"policy\":{\"visibility\":\"directory_public_discoverable_operator_tasks\",\"taskDetail\":\"hive_task_detail_url_only_for_network_project_tasks\",\"privateEvidence\":\"excluded\"},\"totals\":{\"tasks\":100,\"rewardActualPft\":13385},\"tasks\":[{\"taskId\":\"task_bb658f1f3997a890db53882a91a0d846\",\"taskKind\":\"network\",\"operator\":{\"accountId\":\"acct_REDACTED\",\"handle\":\"REDACTED\",\"wallet\":\"rREDACTED\"},\"title\":\"Reproduce Unbounded MCP Buffering in CorbanuTerminal\",\"description"
+}
