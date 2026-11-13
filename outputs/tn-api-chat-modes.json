@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/chat/modes",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.5,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 3141,
+  "fetched_at_utc": "2026-11-13T02:35:53Z",
+  "body_head": "{\"modes\":[{\"label\":\"Instant\",\"provider\":\"vercel\",\"providerLabel\":\"Vercel AI Gateway\",\"model\":\"deepseek/deepseek-v4.1-flash-1017\",\"configured\":true,\"primaryConfigured\":true,\"backupConfigured\":false,\"backupProvider\":\"\",\"enabled\":false,\"status\":\"login_required\",\"actionRequired\":\"Sign in to use billable chat modes.\",\"billingPolicy\":\"configured_user_tariff\",\"pricing\":{\"inputUsdPerMillion\":0.063,\"inputCacheHitUsdPerMillion\":0.0126,\"outputUsdPerMillion\":0.126},\"description\":\"\",\"privacy\":\"Vercel AI Gateway\",\"latency\":\"Fast\"},{\"label\":\"Thinking\",\"provider\":\"vercel\",\"providerLabel\":\"Vercel AI Gateway\",\""
+}

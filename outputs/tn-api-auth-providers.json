@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/auth/providers",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.545,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 2204,
+  "fetched_at_utc": "2026-11-13T02:35:58Z",
+  "body_head": "{\"providers\":[{\"id\":\"telegram\",\"label\":\"Telegram\",\"kind\":\"telegram_login\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"startPath\":\"/api/auth/start/telegram\",\"callbackPath\":\"/api/auth/callback/telegram\",\"actionRequired\":\"Configure the Telegram Login Widget bot username and BotFather domain for this Task Node deployment.\",\"note\":\"Preferred mobile account-link path. Telegram signed login is verified server-side before account creation or linking.\"},{\"id\":\"discord\",\"label\":\"Discord\",\"kind\":\"oauth\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"startPath\":\"/api/auth/start/discord\",\"callba"
+}

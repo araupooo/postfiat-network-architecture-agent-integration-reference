@@ -1,0 +1,11 @@
+{
+  "url": "https://tasknode.postfiat.org/api/context/actions",
+  "method": "GET",
+  "http_status": 200,
+  "rtt_s": 0.609,
+  "content_type": null,
+  "content_length": null,
+  "body_bytes": 1610,
+  "fetched_at_utc": "2026-11-13T02:40:59Z",
+  "body_head": "{\"actions\":[{\"id\":\"import_shared_url\",\"label\":\"Import shared URL\",\"path\":\"/api/context/import/start\",\"method\":\"POST\",\"configured\":true,\"enabled\":false,\"status\":\"disabled\",\"actionRequired\":\"Implement URL evidence checks, document fetch adapters, cache storage, and user confirmation before enabling context import.\",\"note\":\"Imports Google Docs, Notion, Gist, or other shared document URLs into a cacheable context record.\"},{\"id\":\"save_edit\",\"label\":\"Save context edit\",\"path\":\"/api/context/edit/save\",\"method\":\"POST\",\"configured\":true,\"enabled\":true,\"status\":\"ready\",\"actionRequired\":\"Sign in with an"
+}

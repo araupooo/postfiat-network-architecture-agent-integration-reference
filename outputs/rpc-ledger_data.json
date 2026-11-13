@@ -1,0 +1,67 @@
+{
+  "host": "rpc.testnet.postfiat.org",
+  "method": "ledger_data",
+  "params": {
+    "ledger_index": "validated",
+    "limit": 2,
+    "binary": false
+  },
+  "http_status": 200,
+  "rtt_s": 0.865,
+  "fetched_at_utc": "2026-11-13T02:34:31Z",
+  "raw_body_bytes": 1654,
+  "response": {
+    "result": {
+      "ledger": {
+        "account_hash": "380B5F1A65E157DCE4E904D8334788C36297454C20ECA8F950E0A77C24FAA979",
+        "close_flags": 0,
+        "close_time": 847852471,
+        "close_time_human": "2026-Nov-13 02:34:31.000000000 UTC",
+        "close_time_iso": "2026-11-13T02:34:31Z",
+        "close_time_resolution": 10,
+        "closed": true,
+        "ledger_hash": "8E119AECD3404509F388D006154B8C691B26453DA0923BBAF32044D72BA9C477",
+        "ledger_index": "8001214",
+        "parent_close_time": 847852470,
+        "parent_hash": "23DA3B5738643994134509D13FC2A8105FE768271971939A51FB4BC231462709",
+        "total_coins": "99999999967500574",
+        "transaction_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "ledger_hash": "8E119AECD3404509F388D006154B8C691B26453DA0923BBAF32044D72BA9C477",
+      "ledger_index": 8001214,
+      "marker": "001F87B867C084DE7207DFDA7331C149B49679C062C361018355C32D4C86A06A",
+      "state": [
+        {
+          "Account": "rM4y7PduTib1tt7bm6q2LCoV9JeGY7ZeqW",
+          "Balance": "156306030",
+          "BurnedNFTokens": 13,
+          "FirstNFTokenSequence": 7991353,
+          "Flags": 0,
+          "LedgerEntryType": "AccountRoot",
+          "MintedNFTokens": 19,
+          "OwnerCount": 1,
+          "PreviousTxnID": "EA3FDC476561200D722E0A0FC8C13F1C5B2D891A9F992B15E29C91060EE5CF51",
+          "PreviousTxnLgrSeq": 8001178,
+          "Sequence": 7991456,
+          "index": "0017F0567F5CB306D2A1385F642A1472BC1FD1EAE8CD76A505B0D6B357D408A8"
+        },
+        {
+          "Account": "rnQsb9NN4BmXh62mcoJMM1trri4nSZtaAn",
+          "Balance": "14999990",
+          "BurnedNFTokens": 17,
+          "FirstNFTokenSequence": 1238200,
+          "Flags": 0,
+          "LedgerEntryType": "AccountRoot",
+          "MintedNFTokens": 17,
+          "OwnerCount": 0,
+          "PreviousTxnID": "4CFBA2B12E09A313C7CD3807BF053E1D7941D1B9914A67583D4CA4AD4F2A273C",
+          "PreviousTxnLgrSeq": 1290071,
+          "Sequence": 1238705,
+          "index": "001888C47C0D105C80F26E19CE6297A9293932E5816CF97E3768BA8FEEEA374C"
+        }
+      ],
+      "status": "success",
+      "validated": true
+    }
+  }
+}

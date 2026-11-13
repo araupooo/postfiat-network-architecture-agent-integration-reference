@@ -1,0 +1,12 @@
+{
+  "host": "rpc.testnet.postfiat.org",
+  "method": "validators",
+  "params": {},
+  "http_status": 403,
+  "rtt_s": 0.87,
+  "fetched_at_utc": "2026-11-13T02:34:15Z",
+  "raw_body_bytes": 11,
+  "response": {
+    "_unparsable_body": "Forbidden\r\n"
+  }
+}

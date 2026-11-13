@@ -1,0 +1,15 @@
+{
+  "host": "rpc.testnet.postfiat.org",
+  "method": "ledger_closed",
+  "params": {},
+  "http_status": 200,
+  "rtt_s": 0.813,
+  "fetched_at_utc": "2026-11-13T02:34:02Z",
+  "response": {
+    "result": {
+      "ledger_hash": "3D7D1BA55B5A3228401FA0D53D1FA5F6360E747818FAA0F3A5FDD64126AC5507",
+      "ledger_index": 8001204,
+      "status": "success"
+    }
+  }
+}
